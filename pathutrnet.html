@@ -19,36 +19,48 @@
             <!-- One -->
                 <section id="one">
                     <header class="major">
-                        <h2>PathUTRNet</h2>
+                        <h2>PathUTRNet: Prediction of signaling pathways and
+                            microRNA non-coding regions with deep learning</h2>
                     </header>
-                    <p>
+                    <!-- <p>
                     Prediction of signaling pathways and
                     microRNA non-coding regions with deep learning
-                </p>
-                <!-- <p> During my studies, I realized my love for machine learning, hence I am exploring this vast field via creating my own projects and taking part in Kaggle competitions.    </p> -->
-
+                </p> -->
+                <p>PathUTRNet was created in the context of my MSc thesis during my master's studies in Queen Mary University of London.</p>
                     <ul class="actions">
                         <li><a href="#two" class="button">Learn More</a></li>
                     </ul>
                 </section>
                 <section id="two">
-                    <h2>Summary</h2>
+                    <h2 class="major">Summary</h2> 
                     <p>PathUTRNet consists of two deep learning models, which are utilized in a sequential way to accomplish three interconnected tasks:</p>
                     <ul>
-                        <li>The first model's purpose is to identify the existence of a binding site between a miRNA and non-coding region.</li>
-                        <li>The second model's purpose is dual. That is predict both the signal transduction pathway the concatenated sequence (miRNA + UTR) belongs to and the untraslated region itself</li>
+                        <li>The first model's purpose is to identify the existence of a binding site between a miRNA and non-coding region (binary classification).</li>
+                        <li>Providing there is a binding site between a mIRNA and its non-coding region, the second model predicts both the signal transduction pathway 
+                            the concatenated sequence (miRNA + UTR) belongs to (150 classes - multi-class classification)
+                            and the binding's untraslated region (3'UTR or 5'UTR - binary classification).</li>
                     </ul>
-                    <strong>Both models combine both CNN & RNN layers together,</strong> since this architecture outperforms both of the paper's simpler counterparts.
-                    <br><br>
+                    <p>Both models combine both CNN and RNN layers together, since this architecture outperforms both paper's simpler counterparts (CNN-based, RNN-based). </p>
                     <h2 class="major" >Scientific Publication:</h2>
                     <p>Scientific paper to be written together with <a href="https://scholar.google.co.uk/citations?user=alDiS3kAAAAJ&hl=en"><strong>Professor Rob Krams</strong></a> </p>
-                    <h4 class="major" >Current paper's version is available at:</h4>
+                    <p>Current paper's version is available at:</p>
                     <ul class="contact">
                         <li class="icon solid fa-book-open"><a href="https://github.com/Skoularikis/PathUTRNet/blob/main/PathUTRNet:%20Prediction%20of%20signaling%20pathways%20and%0AmicroRNA%20non-coding%20regions%20with%20deep%20learning.pdf">
                             &nbsp;PathUTRNet: Prediction of signaling pathways and microRNA non-coding regions with deep learning</a></li>
     
                     </ul>
                     <p>Note: Paper's content will be frequently updated before acquiring a final draft</p>
+                    <h2 class="major" >Data:</h2>
+                    <ul>
+                        <li>Signal transduction pathways data were acquired from Reactome</li>
+                        <li>Genes (Gene symbols) related to these pathways were obtained through a web-based NCBI tool</li>
+                        <li>DIANA TarBase v.8 was indexed to retrieve pairs of positive and negative pairs of genes and miRNAs. </li>
+                        <li>Regarding the aforementioned pairs, only the mature miRNA's largest transcript coding, 3'UTR, 5'UTR were considered. 
+                            These were acquired by leveraging BioMart and Bioconductor.
+                        </li>
+                            
+                    </ul>
+                    <p>Additinal information can be found in the paper.</p>
                     <h2 class="major" >Sample of results during inference:</h2>
                         <h4 class="major">Input</h4>
                         <ul>
